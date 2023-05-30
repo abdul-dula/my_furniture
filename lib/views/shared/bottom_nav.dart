@@ -24,7 +24,7 @@ class BottomNav extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal:10),
             decoration:  BoxDecoration(
                 color: Styles.primaryColor,
-                borderRadius: const BorderRadius.all(Radius.circular(16))
+                borderRadius: const BorderRadius.all(Radius.circular(17))
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
