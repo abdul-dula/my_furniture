@@ -20,6 +20,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
+    final List<String> images = [
+      'assets/white_sofa.png',
+      'assets/yellow_sofa.png',
+      'assets/green_chair.png',
+    ];
+
     return Scaffold(
         backgroundColor: Styles.bgColor,
         body: SizedBox(
@@ -66,7 +72,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     TabBar(
                         indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(17.0),
-                          color: Colors.black,
+                          color: Styles.primaryColor,
                         ),
                         indicatorSize: TabBarIndicatorSize.label,
                         indicatorColor: Colors.transparent,
@@ -74,7 +80,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         isScrollable: true,
                         labelColor: Colors.white,
                         labelStyle: Styles.headLineStyle3,
-                        unselectedLabelColor: Colors.black54,
+                        unselectedLabelColor: Styles.primaryColor,
                         labelPadding: EdgeInsets.symmetric(horizontal: 10),
                         tabs: <Widget>[
                           Tab(
@@ -86,7 +92,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       horizontal: 11,vertical: 6),
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: Colors.black54, width: 2.5),
+                                        color: Styles.primaryColor, width: 2.5),
                                     borderRadius: BorderRadius.circular(17),
                                   ),
                                   child: Row(
@@ -121,7 +127,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       horizontal: 11,vertical: 6),
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: Colors.black54, width: 2.5),
+                                        color: Styles.primaryColor, width: 2.5),
                                     borderRadius: BorderRadius.circular(17),
                                   ),
                                   child: Row(
@@ -156,7 +162,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       horizontal: 11,vertical: 6),
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: Colors.black54, width: 2.5),
+                                        color: Styles.primaryColor, width: 2.5),
                                     borderRadius: BorderRadius.circular(17),
                                   ),
                                   child: Row(
@@ -166,7 +172,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         child: const FittedBox(
                                           child: ImageIcon(
                                             AssetImage("lib/icons/sofa.png"),
-                                            size: 55,
+                                            size: 90,
                                           ),
                                         ),
                                       ),
@@ -191,7 +197,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       horizontal: 11,vertical: 6),
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: Colors.black54, width: 2.5),
+                                        color: Styles.primaryColor, width: 2.5),
                                     borderRadius: BorderRadius.circular(17),
                                   ),
                                   child: Row(
@@ -230,11 +236,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           SizedBox(
                             height: AppLayout.getScreenHeight() * 0.405,
                             child: ListView.builder(
-                                itemCount: 6,
+                                itemCount: 3,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context,index){
                                   return Padding(
-                                    padding: const EdgeInsets.only(left: 15.0),
+                                    padding: const EdgeInsets.only(left: 2.0),
                                     child:Container(
                                       height: AppLayout.getScreenHeight() * 0.405,
                                       color: Styles.bgColor,
@@ -242,35 +248,33 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         alignment: Alignment.bottomCenter,
                                         children: [
                                           Container(
-                                            height: AppLayout.getHeight(230),
+                                            height: AppLayout.getHeight(250),
                                             width: AppLayout.getWidth(220),
                                             padding: const EdgeInsets.all(10.0),
                                             child: Card(
+                                              elevation: 0,
                                               shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(25),
+                                                borderRadius: BorderRadius.circular(24),
                                               ),
                                               color: Colors.white,
                                               child: Padding(
-                                                padding:  EdgeInsets.only(top: AppLayout.getHeight(30)),
+                                                padding:  EdgeInsets.only(top: AppLayout.getHeight(70)),
                                                 child: Column(
-                                                  
                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                     mainAxisAlignment: MainAxisAlignment.center,
                                                     children: [
-                                                      
                                                       const Text('Yellow Armchir',
                                                           style: TextStyle(
-                                                              color: Colors.black54,
+
                                                               fontSize: 20,
                                                               fontWeight: FontWeight.w500)),
                                                       Gap(5),
-                                                       Text("\$500",
+                                                      Text("\$500",
                                                           style: TextStyle(
                                                               letterSpacing: 2,
                                                               color: Colors.brown,
                                                               fontSize: 15,
                                                               fontWeight: FontWeight.w300)),
-
                                                       ElevatedButton(
                                                         //on pressed
                                                         onPressed: () async {},
@@ -286,22 +290,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                                 borderRadius: BorderRadius.circular(18.0),
                                                               )),
                                                           backgroundColor:
-                                                          MaterialStateProperty.all<Color>(Colors.black),
+                                                          MaterialStateProperty.all<Color>(Styles.primaryColor),
                                                         ),
                                                       ),
                                                     ]),
                                               ),
                                             ),
                                           ),
-                                          Positioned(
-                                            top: 15,
+                                          Padding(
+                                            padding: EdgeInsets.only(bottom: 165),
                                             child: Image.asset(
-                                              'assets/yellow_sofa.png',
-                                              fit: BoxFit.cover,
-                                              height: 145,
-                                              width: 145,
+                                                  images[index],
+                                                  fit: BoxFit.cover,
+                                                  height: 145,
+                                                  width: 145,
+                                                ),
+
                                             ),
-                                          )
+
                                         ],
                                       ),
                                     ),
@@ -327,7 +333,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                )
                              ],
                            ),
-                          SizedBox(
+                         SizedBox(
                             height: AppLayout.getScreenHeight() * 0.24,
                             child: ListView.builder(
                                 itemCount: 6,
@@ -380,24 +386,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.w300)),
 
-                                        // ElevatedButton(
-                                        //   //on pressed
-                                        //   onPressed: () async {},
-                                        //   //text to shoe in to the button
-                                        //   child: const Text('Join Now!',
-                                        //       style: TextStyle(color: Colors.white)),
-                                        //   //style section code here
-                                        //   style: ButtonStyle(
-                                        //     elevation: MaterialStateProperty.all<double>(0),
-                                        //     shape:
-                                        //     MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        //         RoundedRectangleBorder(
-                                        //           borderRadius: BorderRadius.circular(18.0),
-                                        //         )),
-                                        //     backgroundColor:
-                                        //     MaterialStateProperty.all<Color>(Colors.black),
-                                        //   ),
-                                        // ),
                                       ]),
                                 ),
                               ),
@@ -405,7 +393,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             Positioned(
                               top: 0,
                               child: Image.asset(
-                                'assets/yellow_sofa.png',
+                                'assets/green_chair.png',
                                 fit: BoxFit.cover,
                                 height: 200,
                               ),
