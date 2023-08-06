@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+
 import '../shared/applayout.dart';
 import '../shared/appstyle.dart';
 
@@ -27,7 +28,7 @@ class _SearchPageState extends State<SearchPage> {
                     horizontal: 22),
                 child: Column(
                   children: [
-                    const Gap(40), // المسافه العاموديه الي بين الجمله و فوق
+                     Gap(AppLayout.getHeight(60)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

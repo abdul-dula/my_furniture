@@ -14,6 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  icon: ^2.2.1
   cupertino_icons: ^1.0.2
   flutter_vector_icons: ^2.0.0
   gap: ^2.0.0
